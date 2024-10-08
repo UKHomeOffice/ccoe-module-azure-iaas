@@ -42,14 +42,14 @@ variable "descriptor" {
 
 variable "tags" {
   type = object({
-    CostCentre  = string
-    Env         = string
-    Owner       = string
-    Repository  = string
-    Script      = string
-    Service     = string
-    Project     = string
-    ProjectID   = string
+    CostCentre = string
+    Env        = string
+    Owner      = string
+    Repository = string
+    Script     = string
+    Service    = string
+    Project    = string
+    ProjectID  = string
   })
   description = "Azure tags to be applied to all resources inc RG."
   nullable    = false
@@ -113,7 +113,7 @@ variable "virtual_machines" {
     disk_set       = optional(string, "")
     ssh_public_key = optional(string, "") # This should be a path to a local file containing the public key
     image_id       = optional(string, "")
-    image_ref      = optional(object({
+    image_ref = optional(object({
       publisher = string
       offer     = string
       sku       = string
@@ -179,7 +179,7 @@ variable "baseline_cidrs" {
 variable "network_security_groups" {
   type = map(object({
     baselines = optional(list(string), [""])
-    rules     = optional(map(object({
+    rules = optional(map(object({
       priority                     = number
       direction                    = string
       access                       = string

@@ -20,7 +20,7 @@ resource "azurerm_recovery_services_vault" "rsv" {
 # Define Standard Backup Policy
 # ---------------------------------------------------------
 
-locals{
+locals {
   default_vm_backup_policy = {
     "Default" = {
       frequency                      = "Daily"
@@ -39,7 +39,7 @@ locals{
       retention_monthly = {
         count = 0
       }
-      retention_yearly  = {
+      retention_yearly = {
         count = 0
       }
     }
@@ -75,7 +75,7 @@ resource "azurerm_backup_policy_vm" "vm-backup-policy" {
   }
 
   dynamic "retention_daily" {
-    for_each = [ for k in [each.value.retention_daily] : k if each.value.retention_daily.count > 0 ] # Only do this if count is greater than 0
+    for_each = [for k in [each.value.retention_daily] : k if each.value.retention_daily.count > 0] # Only do this if count is greater than 0
 
     content {
       count = each.value.retention_daily.count
@@ -83,7 +83,7 @@ resource "azurerm_backup_policy_vm" "vm-backup-policy" {
   }
 
   dynamic "retention_weekly" {
-    for_each = [ for k in [each.value.retention_weekly] : k if each.value.retention_weekly.count > 0 ] # Only do this if count is greater than 0
+    for_each = [for k in [each.value.retention_weekly] : k if each.value.retention_weekly.count > 0] # Only do this if count is greater than 0
 
     content {
       count    = each.value.retention_weekly.count
@@ -92,7 +92,7 @@ resource "azurerm_backup_policy_vm" "vm-backup-policy" {
   }
 
   dynamic "retention_monthly" {
-    for_each = [ for k in [each.value.retention_monthly] : k if each.value.retention_monthly.count > 0 ] # Only do this if count is greater than 0
+    for_each = [for k in [each.value.retention_monthly] : k if each.value.retention_monthly.count > 0] # Only do this if count is greater than 0
 
     content {
       count             = each.value.retention_monthly.count
@@ -104,11 +104,11 @@ resource "azurerm_backup_policy_vm" "vm-backup-policy" {
   }
 
   dynamic "retention_yearly" {
-    for_each = [ for k in [each.value.retention_yearly] : k if each.value.retention_yearly.count > 0 ] # Only do this if count is greater than 0
+    for_each = [for k in [each.value.retention_yearly] : k if each.value.retention_yearly.count > 0] # Only do this if count is greater than 0
 
     content {
       count             = each.value.retention_yearly.count
-      months            = each.value.retention_yearly.months 
+      months            = each.value.retention_yearly.months
       weekdays          = each.value.retention_yearly.weekdays
       weeks             = each.value.retention_yearly.weeks
       days              = each.value.retention_yearly.days
