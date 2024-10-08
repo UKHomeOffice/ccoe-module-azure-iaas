@@ -208,7 +208,7 @@ variable "backup_policies" {
     hour_interval                  = optional(number, null)
     hour_duration                  = optional(number, null)
     weekdays                       = optional(list(string), [])
-    instant_restore_retention_days = number
+    instant_restore_retention_days = optional(number, null)
     retention_daily = optional(object({
       count = optional(number, 0)
     }), {})
