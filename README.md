@@ -73,7 +73,7 @@ module "example" {
 
     virtual_machines = {
       "1" = { # Zone
-        "APP001" = { # Hostname
+        "APP01" = { # Hostname
             is_windows = false
             size       = "Standard_B4ms"
             subnet     = "Frontend"
@@ -87,7 +87,7 @@ module "example" {
               version   = "latest"
             }
         }
-        "APP002" = { # Hostname
+        "APP02" = { # Hostname
             is_windows = false
             size       = "Standard_B4ms"
             subnet     = "Frontend"
