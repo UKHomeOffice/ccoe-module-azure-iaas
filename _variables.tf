@@ -103,10 +103,10 @@ variable "admin_username" {
 
 variable "virtual_machines" {
   type = map(map(object({
-    is_windows     = bool
     size           = string
     subnet         = string
     ip             = string
+    is_windows     = optional(bool, true)
     user_data      = optional(string, "") # Filepath to user data
     backup_policy  = optional(string, "Default")
     nsg            = optional(string, "")
