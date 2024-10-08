@@ -102,16 +102,18 @@ module "example" {
             }
         }
         "SQL01" = { # Hostname
-            size       = "Standard_A4_v2"
-            subnet     = "Backend"
-            ip         = "10.10.10.71"
-            disk_set   = "db"
+            size          = "Standard_A4_v2"
+            subnet        = "Backend"
+            ip            = "10.10.10.71"
+            disk_set      = "db"
+            backup_policy = "SQL"
         }
         "SQL02" = { # Hostname
-            size       = "Standard_A4_v2"
-            subnet     = "Backend"
-            ip         = "10.10.10.72"
-            disk_set   = "db"
+            size          = "Standard_A4_v2"
+            subnet        = "Backend"
+            ip            = "10.10.10.72"
+            disk_set      = "db"
+            backup_policy = "SQL"
         }
       }
     }
