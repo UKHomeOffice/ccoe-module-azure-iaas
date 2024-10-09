@@ -22,7 +22,7 @@ The module can be called from your Terraform as shown in this example below:
 ```
 
 module "example" {
-  source = "github.com/UKHomeOffice/ccoe-module-azure-iaas"
+  source = "github.com/UKHomeOffice/ccoe-module-azure-iaas?ref=v1.0.0"
 
     # ---------------------------------------------------------
     # Environment & Region
