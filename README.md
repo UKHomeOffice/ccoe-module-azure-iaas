@@ -19,8 +19,7 @@ By using this module you ensure that:
 
 The module can be called from your Terraform as shown in this example below:
 
-```
-
+```hcl
 module "example" {
   source = "github.com/UKHomeOffice/ccoe-module-azure-iaas?ref=v1.0.1"
 
@@ -254,5 +253,4 @@ module "example" {
     }
   }
 }
-
 ```
