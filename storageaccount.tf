@@ -25,7 +25,7 @@ resource "azurerm_storage_account" "bootdiag" {
 
 resource "azurerm_storage_container" "bootdiag-container" {
   name                  = "bootdiag"
-  storage_account_name  = azurerm_storage_account.bootdiag.name
+  storage_account_id    = azurerm_storage_account.bootdiag.id
   container_access_type = "private"
 }
 
@@ -60,7 +60,7 @@ resource "azurerm_storage_container" "storage-account-container" {
   for_each = local.containers
 
   name                  = each.value.container
-  storage_account_name  = azurerm_storage_account.storage-account[each.value.storage_account].name
+  storage_account_id    = azurerm_storage_account.storage-account[each.value.storage_account].id
   container_access_type = each.value.access_type
 }
 
@@ -76,6 +76,6 @@ resource "azurerm_storage_share" "storage-account-share" {
   for_each = local.shares
 
   name                 = each.value.share
-  storage_account_name = azurerm_storage_account.storage-account[each.value.storage_account].name
+  storage_account_id   = azurerm_storage_account.storage-account[each.value.storage_account].id
   quota                = each.value.quota
 }
