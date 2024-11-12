@@ -72,9 +72,9 @@ variable "existing_vnet_rg_name" {
 }
 
 variable "address_space" {
-  type        = string
+  type        = list(string)
   description = "Overall address space to be used for VNet. Subnets will be within this. Only relevant if vnet_id is NOT specified."
-  default     = ""
+  default     = []
 }
 
 variable "dns_servers" {
