@@ -21,7 +21,7 @@ The module can be called from your Terraform as shown in this example below:
 
 ```hcl
 module "example" {
-  source = "github.com/UKHomeOffice/ccoe-module-azure-iaas?ref=v1.0.2"
+  source = "github.com/UKHomeOffice/ccoe-module-azure-iaas?ref=v1.1.2"
 
   # ---------------------------------------------------------
   # Environment & Region
@@ -69,6 +69,8 @@ module "example" {
   # ---------------------------------------------------------
 
   admin_username = "adminuser"
+
+  windows_server_sku = "2022-Datacenter"
 
   virtual_machines = {
     "1" = { # Zone

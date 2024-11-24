@@ -101,6 +101,12 @@ variable "admin_username" {
   description = "Admin username for virtual machines."
 }
 
+variable "windows_server_sku" {
+  type        = string
+  description = "SKU of Windows to use e.g 2019-Datacenter"
+  default     = "2019-Datacenter"
+}
+
 variable "virtual_machines" {
   type = map(map(object({
     size           = string
